@@ -1,14 +1,13 @@
 package BFS;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class BreadthFirstSearch {
 
 	public void bfs(Vertex root){
 		
 		Queue<Vertex> queue = new LinkedList<>();
-		
+                
 		root.setVisited(true);
 		queue.add(root);
 		               
@@ -17,11 +16,15 @@ public class BreadthFirstSearch {
 			Vertex actualVertex = queue.remove();
 			System.out.print(actualVertex + " ");
 			
-			for (Vertex v : actualVertex.getNeighbourList()){
-				if( !v.isVisited() ){
-					v.setVisited(true);
-					queue.add(v);
-				}
+                        ArrayList<Vertex> neighbours = actualVertex.getNeighbourList();
+                        
+                        for (int i = 0; i < neighbours.size(); i++) { 		      
+                            Vertex v = neighbours.get(i);
+                            
+                            if( !v.isVisited() ){
+				v.setVisited(true);
+				queue.add(v);
+                            }
 			}			
 		}
 	}
