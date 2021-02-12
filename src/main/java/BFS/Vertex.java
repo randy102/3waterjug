@@ -1,45 +1,45 @@
 package BFS;
 
 import java.util.ArrayList;
-//import java.util.List;
 
 public class Vertex<T> {
 
-	private T data;
-	private boolean visited;
-	private ArrayList<Vertex> neighbourList;
+    public  T state;
+    private ArrayList<Vertex> adjacentVertices;
 	
-	public Vertex(T data){
-		this.data = data;
-		this.neighbourList = new ArrayList<>();
-	}
+    public Vertex(T state){
+        this.state = state;
+        this.adjacentVertices = new ArrayList<>();
+    }
 
-	public T getData() {
-		return data;
-	}
+    public T getState() {
+	return state;
+}
 
-	public void setData(T data) {
-		this.data = data;
-	}
+    public void setState(T state) {
+	this.state = state;
+    }
 
-	public boolean isVisited() {
-		return visited;
-	}
+    public ArrayList<Vertex> getAdjacentVertices() {
+	return adjacentVertices;
+    }
 
-	public void setVisited(boolean visited) {
-		this.visited = visited;
-	}
+    public void addAdjacentVertex(Vertex neighbour) {
+	this.adjacentVertices.add(neighbour);
+    }
+        	
+    @Override
+    public boolean equals(Object obj) {
+        Vertex vertex = (Vertex) obj;        
+        
+	if (!(vertex instanceof Vertex))
+            return false;	
 
-	public ArrayList<Vertex> getNeighbourList() {
-		return neighbourList;
-	}
-
-	public void addNeighbour(Vertex neighbour) {
-		this.neighbourList.add(neighbour);
-	}
-	
-	@Override
-	public String toString() {
-		return "" + this.data;
-	}
+        return (vertex.getState() == this.getState());
+    }
+    
+    @Override
+    public String toString() {
+	return "" + this.state;
+    }
 }

@@ -12,10 +12,10 @@ public class TestingBFS {
 		Vertex vertex4 = new Vertex(4);
 		Vertex vertex5 = new Vertex(5);
 		
-		vertex1.addNeighbour(vertex2);
-		vertex1.addNeighbour(vertex4);
-		vertex4.addNeighbour(vertex5);
-		vertex2.addNeighbour(vertex3);
+		vertex1.addAdjacentVertex(vertex3);
+		vertex1.addAdjacentVertex(vertex5);
+		vertex3.addAdjacentVertex(vertex4);
+		vertex5.addAdjacentVertex(vertex2);
 		
 		breadthFirstSearch.bfs(vertex1);
 
