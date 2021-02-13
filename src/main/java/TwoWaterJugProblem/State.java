@@ -2,9 +2,11 @@ package TwoWaterJugProblem;
 
 import java.util.List;
 
-/*
- *
- */
+/* 
+    Nguyen Tuan Dang
+    Faculty of Information Technology, Saigon University
+    dangnt@sgu.edu.vn
+*/
 
 public class State {
 

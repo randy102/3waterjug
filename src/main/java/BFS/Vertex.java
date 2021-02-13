@@ -24,8 +24,8 @@ public class Vertex<T> {
 	return adjacentVertices;
     }
 
-    public void addAdjacentVertex(Vertex neighbour) {
-	this.adjacentVertices.add(neighbour);
+    public void addAdjacentVertex(Vertex adjacentVertex) {
+	this.adjacentVertices.add(adjacentVertex);
     }
         	
     @Override

@@ -1,8 +1,10 @@
 package TwoWaterJugProblem;
 
-/*
- *
- */
+/* 
+    Nguyen Tuan Dang
+    Faculty of Information Technology, Saigon University
+    dangnt@sgu.edu.vn
+*/
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -68,12 +70,7 @@ public class UsingBFS2 {
                     
                     if (!visited.contains(newState))
                         queue.add(newState);                   
-                    visited.add(newState);
-                    
-                    //System.out.println("Current state: " + currentState.toString() + "  New State: " + newState.toString());
-                    //currentState.printPath();
-                    //newState.printPath();
-                    //System.out.println("Visited: " + visited);
+                    visited.add(newState);                                        
                 }                                             
             }                       
 	}

@@ -3,9 +3,11 @@ package TwoWaterJugProblem;
 import java.util.List;
 import java.util.ArrayList;
 
-/*
- *
- */
+/* 
+    Nguyen Tuan Dang
+    Faculty of Information Technology, Saigon University
+    dangnt@sgu.edu.vn
+*/
 
 public class Path<T> {
     private List<T> path;

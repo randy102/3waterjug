@@ -1,8 +1,10 @@
 package TwoWaterJugProblem;
 
-/*
- *
- */
+/* 
+    Nguyen Tuan Dang
+    Faculty of Information Technology, Saigon University
+    dangnt@sgu.edu.vn
+*/
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -20,7 +22,7 @@ public class UsingBFS1 {
             State state = (State) obj;
         
             for (State s : this) {
-                if (s.equals(state)) {
+                if (state.equals(s) && (state.getPath().equals(s.getPath()))) {
                     return true;
                 }
             }
@@ -43,8 +45,9 @@ public class UsingBFS1 {
             currentState.addStateToCurrentPath();
             
             if(currentState.getJug1() == GOAL || currentState.getJug2() == GOAL){
-		currentState.printPath();                
-                continue;
+                currentState.printPath();                                   
+                
+                break;
             }            
             
             ArrayList<State> newStates = new ArrayList<>();
@@ -56,11 +59,10 @@ public class UsingBFS1 {
             newStates.add(currentState.pour_jug1_jug2(MAX_JUG2));
             newStates.add(currentState.pour_jug2_jug1(MAX_JUG1));
             
-            for (State newState : newStates){                                                      
-                if(!visited.contains(newState)){                                        
-                    newState.setPath(currentState.getPath());                                        
+            for (State newState : newStates){                                                
+                if(!visited.contains(newState)){                                    
                     queue.add(newState);                   
-                    visited.add(newState);
+                    visited.add(newState);                                        
                 }                                             
             }                       
 	}
