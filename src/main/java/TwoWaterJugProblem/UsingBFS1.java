@@ -15,14 +15,14 @@ import java.util.ArrayList;
 public class UsingBFS1 {
     public static int MAX_JUG1, MAX_JUG2, GOAL;
     
-    public static Queue<State> queue = new LinkedList<>();
+    public static Queue<Vertex> queue = new LinkedList<>();
     
-    public static Set<State> visited = new HashSet<State>(){
+    public static Set<Vertex> visited = new HashSet<Vertex>(){
         public boolean contains(Object obj) {
-            State state = (State) obj;
+            Vertex vertex = (Vertex) obj;
         
-            for (State s : this) {
-                if (state.equals(s) && (state.getPath().equals(s.getPath()))) {
+            for (Vertex v : this) {
+                if ((vertex.equals(v)) && (vertex.getPath().equals(v.getPath()))) {
                     return true;
                 }
             }
@@ -36,33 +36,35 @@ public class UsingBFS1 {
         MAX_JUG2 = 4;
         GOAL = 2;
 
-	State initialState = new State(0, 0);
-        queue.add(initialState);      
-        visited.add(initialState);
+        Vertex.setMaxJugsCapacity(MAX_JUG1, MAX_JUG2);
+        
+	Vertex initialVertex = new Vertex(new State(0,0));
+        queue.add(initialVertex);      
+        visited.add(initialVertex);
         
 	while(!queue.isEmpty()){             
-            State currentState = queue.poll();                                              
-            currentState.addStateToCurrentPath();
+            Vertex currentVertex = queue.poll();                                              
+            currentVertex.addToPath();                        
             
-            if(currentState.getJug1() == GOAL || currentState.getJug2() == GOAL){
-                currentState.printPath();                                   
-                
+            if(currentVertex.getState().getJug1() == GOAL || currentVertex.getState().getJug2() == GOAL){
+                currentVertex.printPath();                                                   
                 break;
             }            
             
-            ArrayList<State> newStates = new ArrayList<>();
+            ArrayList<Vertex> newVertices = new ArrayList<>();
             
-            newStates.add(currentState.full_jug1(MAX_JUG1));
-            newStates.add(currentState.full_jug2(MAX_JUG2));
-            newStates.add(currentState.empty_jug1()); 
-            newStates.add(currentState.empty_jug2());                        
-            newStates.add(currentState.pour_jug1_jug2(MAX_JUG2));
-            newStates.add(currentState.pour_jug2_jug1(MAX_JUG1));
+            newVertices.add(currentVertex.full_jug1());
+            newVertices.add(currentVertex.full_jug2());
+            newVertices.add(currentVertex.empty_jug1()); 
+            newVertices.add(currentVertex.empty_jug2());                        
+            newVertices.add(currentVertex.pour_jug1_jug2());
+            newVertices.add(currentVertex.pour_jug2_jug1());
             
-            for (State newState : newStates){                                                
-                if(!visited.contains(newState)){                                    
-                    queue.add(newState);                   
-                    visited.add(newState);                                        
+            for (Vertex newVertex : newVertices){                                    
+                if(!visited.contains(newVertex)){                        
+                    newVertex.setPath(currentVertex.getPath());
+                    queue.add(newVertex);                   
+                    visited.add(newVertex);                                        
                 }                                             
             }                       
 	}

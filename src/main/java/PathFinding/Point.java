@@ -13,7 +13,7 @@ class Point {
         
     @Override
     public String toString() { 
-        return String.format(x + "-" + y); 
+        return String.format("(" + x + "-" + y + ")"); 
    } 
 }
 
