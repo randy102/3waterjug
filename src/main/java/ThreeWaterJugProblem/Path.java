@@ -1,4 +1,4 @@
-package TwoWaterJugProblem;
+package ThreeWaterJugProblem;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ public class Path<T> {
     }
 
     public void printPath(){
-        for (int i = 0; i < path.size(); i++){
-            System.out.print(path.get(i).toString() + " ");
+        for (T t : path) {
+            System.out.print(t.toString() + " ");
         }
         
         System.out.println();

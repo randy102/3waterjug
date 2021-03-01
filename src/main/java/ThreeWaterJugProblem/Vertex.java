@@ -1,4 +1,4 @@
-package TwoWaterJugProblem;
+package ThreeWaterJugProblem;
 
 import java.util.List;
 
@@ -22,8 +22,8 @@ public class Vertex {
         this.path = new Path<>();
     }
     
-    public static void setMaxJugsCapacity(int maxJug1, int maxJug2){
-        State.setMaxJugsCapacity(maxJug1, maxJug2);
+    public static void setMaxJugsCapacity(int maxJug1, int maxJug2, int maxJug3){
+        State.setMaxJugsCapacity(maxJug1, maxJug2, maxJug3);
     }
     
     public State getState(){
@@ -37,6 +37,10 @@ public class Vertex {
     public Vertex full_jug2(){
 	return new Vertex (state.full_jug2());
     }
+
+    public Vertex full_jug3(){
+        return new Vertex (state.full_jug3());
+    }
     
     public Vertex empty_jug1(){
 	return new Vertex(state.empty_jug1());
@@ -45,6 +49,10 @@ public class Vertex {
     public Vertex empty_jug2(){
 	return new Vertex(state.empty_jug2());
     }
+
+    public Vertex empty_jug3(){
+        return new Vertex(state.empty_jug3());
+    }
     
     public Vertex pour_jug1_jug2(){
         return new Vertex(state.pour_jug1_jug2());
@@ -52,6 +60,22 @@ public class Vertex {
     
     public Vertex pour_jug2_jug1(){
         return new Vertex(state.pour_jug2_jug1());
+    }
+
+    public Vertex pour_jug1_jug3(){
+        return new Vertex(state.pour_jug1_jug3());
+    }
+
+    public Vertex pour_jug3_jug1(){
+        return new Vertex(state.pour_jug3_jug1());
+    }
+
+    public Vertex pour_jug2_jug3(){
+        return new Vertex(state.pour_jug2_jug3());
+    }
+
+    public Vertex pour_jug3_jug2(){
+        return new Vertex(state.pour_jug3_jug2());
     }
     
     public void addToPath() {

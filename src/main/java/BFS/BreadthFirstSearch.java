@@ -1,6 +1,5 @@
 package BFS;
 
-import static TwoWaterJugProblem.UsingBFS1.GOAL;
 import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Queue;
